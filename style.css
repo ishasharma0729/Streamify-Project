@@ -1,0 +1,437 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.main {
+  flex: 1;
+  width: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000;
+  color: white;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 280px;
+  background-color: #121212;
+  height: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar h2 {
+  color: #1db954;
+  margin-bottom: 2rem;
+}
+
+/* New: General sidebar section */
+.sidebar-section {
+    background-color: #121212; /* Default background */
+    border-radius: 0.5rem; /* Match Spotify's rounded corners */
+    padding: 0.5rem;
+    margin-bottom: 0.5rem; /* Space between sections */
+}
+
+/* New: Navigation specific section */
+.sidebar-section.nav-section {
+    background-color: #121212;
+    padding: 0.5rem 0.5rem 0;
+}
+
+/* New: Library specific section, allows scrolling */
+.sidebar-section.library-section {
+    background-color: #121212;
+    flex-grow: 1; /* Allows this section to fill available space */
+    overflow-y: auto; /* Enables scrolling within this section */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+}
+
+.sidebar-section.library-section::-webkit-scrollbar { /* Hide scrollbar for Chrome, Safari, Opera */
+  display: none;
+}
+
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar li:hover {
+  color: white;
+  background-color: #282828;
+}
+
+.sidebar li i {
+    font-size: 1.25rem;
+    width: 24px;
+    text-align: center;
+}
+
+.sidebar-section-title {
+    color: #b3b3b3;
+    font-size: 0.9rem;
+    margin: 0 0 1rem 0;
+    padding: 0.5rem 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: default;
+}
+
+.sidebar-section-title i {
+    font-size: 1.25rem;
+    color: white;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-section-title i:hover {
+    background-color: #2a2a2a;
+}
+
+/* Styles for individual cards within sidebar sections */
+.sidebar-card {
+    background-color: #242424;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem; /* Space between cards */
+    transition: background-color 0.2s ease;
+    cursor: default;
+}
+
+.sidebar-card:hover {
+    background-color: #303030;
+}
+
+.sidebar-card h5 {
+    font-size: 0.9rem;
+    margin: 0;
+    margin-bottom: 0.25rem;
+    color: white;
+}
+
+.sidebar-card p {
+    color: #b3b3b3;
+    font-size: 0.75rem;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.sidebar-button {
+    background-color: white;
+    color: #121212;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.sidebar-button:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+}
+
+.sidebar-bottom-links {
+  margin-top: auto; /* Pushes these links to the bottom */
+  padding-top: 1rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-bottom-links a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-size: 0.75rem;
+  transition: color 0.2s ease;
+}
+
+.sidebar-bottom-links a:hover {
+  color: white;
+}
+
+.language-selector {
+  padding: 1rem;
+  padding-bottom: 2rem;
+}
+
+.english-button {
+  background-color: transparent;
+  border: 1px solid #777;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  width: fit-content;
+}
+
+.english-button:hover {
+  border-color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.english-button i {
+  font-size: 1rem;
+}
+
+.main {
+  flex: 1;
+  padding: 2rem;
+  background-color: #181818;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding-bottom: 100px;
+}
+
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: #282828;
+  padding: 1rem 1rem 2rem;
+  border-radius: 0.85rem;
+  text-align: center;
+  position: relative;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 220px;
+  box-sizing: border-box;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: #333;
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
+  line-height: 1.3;
+  height: auto;
+  overflow: hidden;
+}
+
+.card p {
+  margin: 0.5rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card .play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #1db954;
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  display: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.card:hover .play-btn {
+  display: block;
+}
+
+.footer {
+  bottom: 0;
+  position: fixed;
+  left: 280px;
+  right: 0;
+  background-color: #121212;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  height: 80px;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+#player {
+  width: 300px;
+  max-width: 100%;
+  height: 32px;
+}
+
+#progress {
+  width: 300px;
+  max-width: 100%;
+  height: 5px;
+  background: #555;
+  border-radius: 10px;
+  appearance: none;
+  outline: none;
+  margin-top: 0.5rem;
+}
+
+#progress::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #1db954;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -6px;
+}
+
+#progress::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #1db954;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.extended-footer {
+  background-color: #121212;
+  color: #b3b3b3;
+  padding: 2rem;
+  font-size: 0.9rem;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+}
+
+.footer-column h4 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.footer-column ul li:hover {
+  color: white;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.footer-socials a {
+  background: #292929;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+.footer-socials a:hover {
+  background: #1db954;
+}
+
+.copyright {
+  border-top: 1px solid #333;
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.extended-footer .copyright {
+  color: #b3b3b3;
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+}

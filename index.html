@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify Clone with Podcasts</title>
+  
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2>Spotify</h2>
+      <div class="sidebar-section nav-section">
+        <ul>
+          <li onclick="showPage('songs')"><i class="fas fa-home"></i> Home</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section library-section">
+        <h4 class="sidebar-section-title">Your Library <i class="fas fa-plus"></i></h4>
+        <div class="sidebar-card podcast-card">
+          <h5>Let's find some podcasts to follow</h5>
+          <p>We'll keep you updated on new episodes</p>
+          <button class="sidebar-button" onclick="showPage('podcasts')">Browse podcasts</button>
+        </div>
+      </div>
+
+      <div class="sidebar-bottom-links">
+        <a href="#">Legal</a>
+        <a href="#">Safety & Privacy Center</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookies</a>
+        <a href="#">About Ads</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Cookies</a>
+      </div>
+
+      <div class="language-selector">
+        <button class="english-button">
+          <i class="fas fa-globe"></i> English
+        </button>
+      </div>
+    </div>
+
+    <div class="main">
+      <div id="songsHeader" class="header"><h1>My Songs</h1></div>
+      <div id="podcastHeader" class="header" style="display: none;"><h1>Podcasts</h1></div>
+
+      <div class="cards" id="songsPage"></div>
+      <div class="cards" id="podcastsPage" style="display: none;"></div>
+
+      <footer class="extended-footer">
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li>About</li>
+              <li>Jobs</li>
+              <li>For the Record</li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Communities</h4>
+            <ul>
+              <li>For Artists</li>
+              <li>Developers</li>
+              <li>Advertising</li>
+              <li>Investors</li>
+              <li>Vendors</li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Useful links</h4>
+            <ul>
+              <li>Support</li>
+              <li>Free Mobile App</li>
+              <li>Popular by Country</li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Spotify Plans</h4>
+            <ul>
+              <li>Premium Individual</li>
+              <li>Premium Duo</li>
+              <li>Premium Family</li>
+              <li>Premium Student</li>
+              <li>Spotify Free</li>
+            </ul>
+          </div>
+          <div class="footer-socials">
+            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></i></a>
+            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <p class="copyright"> 2025 Spotify AB</p>
+      </footer>
+    </div>
+    <div class="footer">
+      <audio id="player" controls></audio>
+      <input type="range" id="progress" value="0" />
+    </div>
+  </div>
+
+  <!-- <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+  <script>
+    window.botpressWebChat.init({
+      botId: "YOUR_ACTUAL_BOT_ID_HERE",
+      hostUrl: "https://cdn.botpress.cloud/webchat/v0",
+      messagingUrl: "https://messaging.botpress.cloud",
+      clientId: "YOUR_ACTUAL_CLIENT_ID_HERE",
+      botName: "SpotifyBot",
+      showPoweredBy: false
+    });
+  </script> -->
+
+  <script src="script.js"></script>
+</body>
+</html>
+<script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/06/28/02/20250628021716-OY4ALZYF.js"></script>
