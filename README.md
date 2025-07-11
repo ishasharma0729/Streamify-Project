@@ -1,0 +1,1 @@
+# A functional Music and Podcast player with pause/play, seek, and track switch features. Integrated a AI chatbot using Botpress to provide information and assistance about the podcasts and solve user queries.
